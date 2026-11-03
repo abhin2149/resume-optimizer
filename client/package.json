@@ -1,0 +1,68 @@
+{
+  "name": "resume-builder-client",
+  "version": "1.0.0",
+  "description": "Frontend client for the AI-powered resume tailoring application",
+  "private": true,
+  "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.5.2",
+    "autoprefixer": "^10.4.17",
+    "axios": "^1.6.7",
+    "framer-motion": "^12.19.1",
+    "katex": "^0.16.22",
+    "latex.js": "^0.12.6",
+    "lucide-react": "^0.323.0",
+    "postcss": "^8.4.35",
+    "react": "^18.2.0",
+    "react-diff-viewer-continued": "^3.4.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-katex": "^3.1.0",
+    "react-pdf": "^9.2.1",
+    "react-router-dom": "^6.21.3",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^10.0.4",
+    "tailwindcss": "^3.4.1",
+    "web-vitals": "^2.1.4"
+  },
+  "overrides": {
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "vite": "^6.3.5"
+  },
+  "proxy": "http://localhost:3001"
+}

@@ -1,0 +1,179 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[margin=0.3in]{geometry}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-14pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-10pt}]
+
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-4pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \text{\small #2} \\
+      \textit{#3} & \text{\small #4} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeWorkHeading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \text{\small #2} \\
+      \textbf{#3} & \text{\small #4} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \text{\small#2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\newlineText}[1]{
+  \vspace{4pt}\small\par\noindent #1
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.0in, label={}]
+    \setlength{\parskip}{0pt}
+}
+
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
+}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=0.15in, labelsep=0.05in]
+}
+
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}\vspace{-4pt}
+}
+
+
+\begin{document}
+
+\begin{center}
+  {\huge \textbf{Abhinav Vadhera}} \\ \vspace{3pt}
+  \small +1(213) 245-8315 $|$ \href{mailto:vadhera@usc.edu}{vadhera@usc.edu} $|$ 
+  {\textit{linkedin.com/in/abhin2149}} $|$
+  {\textit{github.com/abhin2149}} $|$
+  {\textit{leetcode.com/abhin2149}} \\
+  \vspace{1pt}
+  \parbox{0.98\textwidth}{
+  \small Software engineer with 4+ years of experience in fintech, building scalable full-stack systems and AI-powered platforms. Delivered \$100M business impact through customer-facing tools at American Express. Strong in Python, cloud (GCP/AWS), and secure microservices. Currently focused on LLMs, smart contracts, and RAG architectures to power intelligent, secure applications.
+}
+  
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+  {University of Southern California}{Los Angeles, CA}
+  {Master of Science in Computer Science}{Jan 2025 -- Dec 2026}
+\newlineText{GPA: 3.9 / 4.0 \text{\textbar} Coursework: Advanced NLP, Machine Learning, Distributed Systems, Applied Cryptography}
+  \resumeSubheading
+  {Netaji Subhas Institute of Technology}{New Delhi, India}
+  {Bachelor of Engineering in Information Technology}{Aug 2017 -- May 2021}
+\newlineText{GPA: 8.95 / 10.0 \text{\textbar} Dean's Merit List}
+\resumeSubHeadingListEnd
+
+\section{Work Experience}
+\resumeSubHeadingListStart
+  \resumeWorkHeading
+    {Interdependent Studios}{Los Angeles, CA}
+    {Founding Engineer}{Jan 2025 -- May 2026}
+  \resumeItemListStart
+    \resumeItem{Developed \textbf{Play Pause Shop} for Ralph Lauren, securing a \textbf{\$5M} deal; architected a \textbf{unified Nx monorepo platform} using \textbf{WebAuthn} for high-concurrency streaming and \textbf{secure, scalable authentication.}}
+    \resumeItem{Established \textbf{Agentic Workflows} for script submissions with real-time \textbf{Adobe PDF intelligence} insights for \textbf{\$15M} movies. Engineered automated \textbf{Stripe-identity} driven onboarding via \textbf{Supabase edge functions} to streamline studio-wide pipelines}
+
+  \resumeItemListEnd
+  \resumeWorkHeading
+    {American Express}{Bangalore, India}
+    {Software Development Engineer II}{Apr 2023 -- Dec 2024}
+  \resumeItemListStart
+   \resumeItem{\textbf{Led launch} of Valgen V3, designing distributed microservices and cross-platform schemas; \textbf{boosted chatbot efficiency by 30\%} and \textbf{generated \$100M+ revenue across 2M+} active users (Python, Kafka, \textbf{GCP}).}
+  \resumeItem{\textbf{Championed API and microservice security} as Bangalore Security Champion: organized GenAI security workshops, demoed threat modeling to \textbf{200+ engineers}, deployed \textbf{5+ security controls} (OAuth2, JWT, rate limiting), cutting attack surface by \textbf{10\%}.}
+  \resumeItem{Built \textbf{real-time observability dashboards} (Grafana, Stackdriver) \textbf{cutting down incident detection time from hours to minutes}; standardized runbooks and led \textbf{code walkthroughs} to improve reliability \textbf{across 5+ engineering teams}.}
+  \resumeItem{Showcased engineering leadership, \textbf{presenting Valgen V3 and COFE integration} to senior leadership; recognized with \textbf{7000+ Blue Rewards} and multiple eCards for above-and-beyond contributions.}
+  \resumeItemListEnd
+  \resumeSubSubheading
+    {Software Development Engineer I}{Aug 2021 -- Apr 2023}
+  \resumeItemListStart
+    \resumeItem{\textbf{Redesigned bulk offer upload pipeline} (JSON templating, async parallel processing), \textbf{diminishing manual operations by 80\%} and enabling \textbf{scalable bot-to-bot transfers} with full context preservation.}
+    \resumeItem{\textbf{Delivered Valgen Offers platform} and Add-a-Supp chatbot, deploying Kafka event-tracking microservices and end-to-end automation testing across \textbf{2M+ transactions}; \textbf{refined launch efficiency by 25\%}.}
+  \resumeItemListEnd
+  \resumeSubSubheading
+    {Software Development Intern}{May 2020 -- Jul 2020}
+  \resumeItemListStart
+    \resumeItem{\textbf{Decreased service latency by 20\%} on Raven platform by benchmarking gRPC, HTTP, and GraphQL. Scaled testing with \textbf{Docker, Kubernetes, and Vert.x clusters}.}
+  \resumeItemListEnd
+
+  \resumeWorkHeading
+    {Inkredo (acquired by Rupymart)}{Gurugram, India}
+    {Full Stack Developer Intern}{Jun 2019 -- Jun 2021}
+  \resumeItemListStart
+    \resumeItem{\textbf{Built MVP and demo portal} using React, Flask, and Firebase; led to \textbf{50\% increase in sign-ups} and \textbf{2 investor demos}.}
+    \resumeItem{Developed \textbf{real-time fraud detection engine} for PDFs (Python, OCR, Regex) with \textbf{sub-second response time}, obtaining \textbf{100K+ customer verifications}.}
+    \resumeItem{Architected a \textbf{fault-tolerant storage and retrieval engine} handling \textbf{50K concurrent users}; optimized for speed and memory with \textbf{async I/O}.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\vspace{-4pt}
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.0in, label={}] 
+\small \item{ \vspace{5pt} 
+\textbf{Languages/Frameworks:} Python, C++, JavaScript/TypeScript, React, Flask, FastAPI, Django, Android, Flutter \\ 
+\textbf{Cloud/DevOps:} AWS, GCP, Docker, Kubernetes, Firebase, Linux/SSH \\ 
+\textbf{Databases:} PostgreSQL, MySQL, MongoDB, Redis \\ \textbf{Other:} System Design, Distributed Systems, Agile, CI/CD, Testing, LLM Pipelines, Design Patterns }
+\end{itemize}\vspace{-4pt}
+
+\vspace{-4pt}
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading{\textbf{Gold Price Forecasting, Ensemble Learning} $|$ \emph{ML Engineer}$|$ \href{https://github.com/abhin2149/gold_price_prediction_ensemble}{GitHub}}{June 2025}
+  \resumeItemListStart
+    \resumeItem{Applied Ridge Regression as a meta-learner, achieving a scaled RMSE of 0.062. Bench-marked ensemble performance against academic and industry baselines, achieving ~30\% reduction in squared error vs. naive models.}
+  \resumeItemListEnd
+  \resumeProjectHeading{\textbf{Certichain} $|$ \emph{Blockchain Engineer}$|$ \href{https://github.com/abhin2149/certichain}{GitHub}}{Mar 2025}
+  \resumeItemListStart
+    \resumeItem{Created decentralized certificate verification system on Ethereum leveraging Solidity, Truffle, IPFS, and Firebase — lowered verification time by 40\%.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading{\textbf{Video Captioning, Deep Learning} $|$ \emph{ML Engineer}}{Nov 2020}
+  \resumeItemListStart
+    \resumeItem{Implemented encoder-decoder pipeline (CNN + LSTM) for generating captions from video frames (TensorFlow/Keras). Improved BLEU score by 20\% over baseline using pretrained models and attention mechanisms.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\end{document}
