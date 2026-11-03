@@ -30,8 +30,32 @@ An intelligent resume tailoring application that uses LLM technology to optimize
 
 ### System Requirements
 - Node.js 16+ and npm
+- PostgreSQL (v14 or higher recommended)
 - LaTeX distribution (TeX Live, MiKTeX, or MacTeX)
-- OpenAI API key
+- OpenAI API key (or Anthropic API key)
+
+### PostgreSQL Installation
+
+**macOS (via Homebrew):**
+```bash
+brew install postgresql@14
+brew services start postgresql@14
+# Create a default postgres user if one doesn't exist
+createuser -s postgres
+```
+
+**Ubuntu/Debian:**
+```bash
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+# Set password for the postgres user
+sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'password';"
+```
+
+**Windows:**
+Download and install the PostgreSQL installer from [EnterpriseDB](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). Remember the password you set for the default `postgres` user during installation.
 
 ### LaTeX Installation
 
@@ -67,19 +91,30 @@ npm install
 npm run install:client
 ```
 
-4. **Set up environment variables:**
+4. **Set up the local database:**
+Create a new database named `resumebuilder`:
+```bash
+# On macOS / Linux
+createdb -U postgres resumebuilder
+
+# Or via psql terminal
+psql -U postgres -c "CREATE DATABASE resumebuilder;"
+```
+
+5. **Set up environment variables:**
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and add your configuration:
-```
+Edit `.env` and add your configuration, pointing to your local PostgreSQL instance:
+```env
 # Database Configuration (Required)
-DATABASE_URL=postgresql://postgres:password@db.your-project.supabase.co:5432/postgres
+# Format: postgresql://<user>:<password>@localhost:5432/<dbname>
+DATABASE_URL=postgresql://postgres:password@localhost:5432/resumebuilder
 
-# OpenAI Configuration (Required)
-OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=gpt-5
+# AI Configuration (Required)
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+ANTHROPIC_MODEL=claude-3-5-sonnet-20241022
 OPENAI_TEMPERATURE=0.3
 OPENAI_MAX_TOKENS=16000
 
@@ -90,22 +125,18 @@ NODE_ENV=development
 # LaTeX Configuration
 LATEX_TIMEOUT=30000
 LATEX_COMMAND=pdflatex
-
-# Supabase Configuration (Optional)
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_ANON_KEY=your-anon-key
 ```
 
-5. **Set up the database:**
+6. **Initialize the database schema:**
 ```bash
-# Test database configuration
+# Test local database connection
 npm run db:test
 
-# Run database setup
+# Run database setup/migrations to build required tables
 npm run db:setup
 ```
 
-6. **Build the frontend:**
+7. **Build the frontend:**
 ```bash
 npm run build:client
 ```
@@ -278,17 +309,15 @@ resume-builder/
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | Required |
-| `OPENAI_API_KEY` | OpenAI API key | Required |
-| `OPENAI_MODEL` | Model to use | `gpt-5` |
+| `DATABASE_URL` | Local PostgreSQL connection string | Required |
+| `ANTHROPIC_API_KEY` | Anthropic API key | Required |
+| `ANTHROPIC_MODEL` | Model to use | `claude-3-5-sonnet-20241022` |
 | `OPENAI_TEMPERATURE` | Creativity level | `0.3` |
-| `OPENAI_MAX_TOKENS` | Max response tokens | `8000` |
+| `OPENAI_MAX_TOKENS` | Max response tokens | `16000` |
 | `PORT` | Server port | `3001` |
 | `NODE_ENV` | Environment | `development` |
 | `LATEX_TIMEOUT` | LaTeX compilation timeout | `30000` |
 | `LATEX_COMMAND` | LaTeX command | `pdflatex` |
-| `SUPABASE_URL` | Supabase project URL | Optional |
-| `SUPABASE_ANON_KEY` | Supabase anonymous key | Optional |
 
 ## 🚨 Troubleshooting
 
@@ -298,8 +327,8 @@ resume-builder/
 - Ensure LaTeX is installed and `pdflatex` is in your PATH
 - On macOS, add `/usr/local/texlive/2023/bin/universal-darwin` to PATH
 
-**OpenAI API errors:**
-- Verify your API key is correct and has credits
+**API errors:**
+- Verify your Anthropic/OpenAI API key is correct and has credits
 - Check rate limits and quotas
 
 **Compilation errors:**
@@ -311,10 +340,10 @@ resume-builder/
 - Check file size (max 5MB)
 
 **Database connection issues:**
+- Ensure your local PostgreSQL service is actively running (`sudo systemctl status postgresql` or `brew services info postgresql`).
 - Test database configuration: `npm run db:test`
-- Verify DATABASE_URL format: `postgresql://user:password@host:port/database`
-- Check Supabase project status and credentials
-- Ensure database is accessible from your network
+- Verify `DATABASE_URL` format: `postgresql://user:password@localhost:5432/resumebuilder`
+- Confirm that the database (`resumebuilder`) actually exists using `psql -l` or pgAdmin.
 
 ### Debug Mode
 
@@ -334,7 +363,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- OpenAI for GPT-5 API
+- Anthropic & OpenAI for API access
 - LaTeX community for excellent documentation
 - React and Node.js communities
 
@@ -344,4 +373,4 @@ For support, please open an issue on the GitHub repository or contact the develo
 
 ---
 
-**Built with ❤️ using Node.js, React, and OpenAI GPT-5** 
+**Built with ❤️ using Node.js, React, and LLMs**
