@@ -13,7 +13,7 @@ This prototype isolates the core AI orchestration engine of a larger Resume Buil
 ## Setup Instructions
 1. Clone this directory and navigate to the root.
 2. Run `npm run install:all` to install both backend and frontend dependencies.
-3. Create a `.env` file in the root directory: (ANTHROPIC_API_KEY, ANTHROPIC_MODEL, LATEX_COMMAND=pdflatex)
+3. Create a `.env` file in the root directory: (ANTHROPIC_API_KEY, ANTHROPIC_MODEL, LATEX_COMMAND=pdflatex, PORT=3001)
 
 ## Run Instructions
 1. Run `npm run dev:both` from the root directory. This uses `concurrently` to start both the Express backend and the React frontend simultaneously.
